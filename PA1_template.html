@@ -224,11 +224,11 @@ d &lt;- dim(dataframe)
 names(daysums) &lt;- c(&quot;date&quot;, &quot;steps&quot;)
 daymean1 &lt;- mean(daysums$steps, na.rm=TRUE)
 daymedian1 &lt;- median(daysums$steps, na.rm=TRUE)
-mn1 &lt;- paste(&quot; = &quot;, round(daymean1, 0))
-md1 &lt;- paste(&quot; = &quot;, round(daymedian1, 0))
+paste(&quot;The day step counts have mean = &quot;, round(daymean1, 2),
+        &quot; and median = &quot;, round(daymedian1, 2))
 </code></pre>
 
-<p>The day step counts have mean  =  10766 and median   =  10765</p>
+<p>[1] &ldquo;The day step counts have mean =  10766.19  and median =  10765&rdquo;</p>
 
 <p>Histogram of the frequencies of daily steps,
 ie how many times each step count occured</p>
@@ -256,7 +256,7 @@ maxmeans &lt;- intmeans[rowindex,]
 
 <p>Row 104 represents 5-minute interval  835 which contains the maximum mean = 206.17<br/>
 <br/>
-Histogram of the means of 5-minute interval steps on average across all the days,</p>
+Time Series plot of the means of 5-minute interval steps on average across all the days,</p>
 
 <pre><code class="r">plot(intmeans$steps, type=&quot;l&quot;,  
      main=&quot;Average steps per interval across all days&quot;,
@@ -297,11 +297,11 @@ for (ic in change){                    # intervals with NA
 <pre><code class="r">daysums &lt;- aggregate(df$steps,  by = list(df$date),  sum)
 daymean2 &lt;- mean(daysums$x, na.rm=TRUE)
 daymedian2 &lt;- median(daysums$x, na.rm=TRUE)
-mn2 &lt;- paste(&quot;  = &quot;, round(daymean2, 2))
-md2 &lt;- paste(&quot;  = &quot;, round(daymedian2, 2))
+paste(&quot;The total steps for the days have mean  = &quot;, 
+    round(daymean2, 2), &quot;  and median  = &quot;, round(daymedian2, 2))
 </code></pre>
 
-<p>The total steps for the days have mean   =  10766.19 and median   =  10766.19  </p>
+<p>[1] &ldquo;The total steps for the days have mean  =  10766.19   and median  =  10766.19&rdquo;</p>
 
 <p>The increase in the mean and median, due to filling in NA, is 0 and 1.19 respectively.  </p>
 

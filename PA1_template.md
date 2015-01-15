@@ -32,10 +32,11 @@ daysums <- aggregate(dataframe$steps,  by = list(dataframe$date),  sum)
 names(daysums) <- c("date", "steps")
 daymean1 <- mean(daysums$steps, na.rm=TRUE)
 daymedian1 <- median(daysums$steps, na.rm=TRUE)
-mn1 <- paste(" = ", round(daymean1, 0))
-md1 <- paste(" = ", round(daymedian1, 0))
+paste("The day step counts have mean = ", round(daymean1, 2),
+        " and median = ", round(daymedian1, 2))
 ```
-The day step counts have mean  =  10766 and median   =  10765
+
+[1] "The day step counts have mean =  10766.19  and median =  10765"
   
 Histogram of the frequencies of daily steps,
 ie how many times each step count occured
@@ -65,7 +66,7 @@ maxmeans <- intmeans[rowindex,]
 ```
 Row 104 represents 5-minute interval  835 which contains the maximum mean = 206.17  
 `  
-Histogram of the means of 5-minute interval steps on average across all the days,
+Time Series plot of the means of 5-minute interval steps on average across all the days,
 
 
 ```r
@@ -110,10 +111,11 @@ Get the mean and median of the total steps for each day
 daysums <- aggregate(df$steps,  by = list(df$date),  sum)
 daymean2 <- mean(daysums$x, na.rm=TRUE)
 daymedian2 <- median(daysums$x, na.rm=TRUE)
-mn2 <- paste("  = ", round(daymean2, 2))
-md2 <- paste("  = ", round(daymedian2, 2))
+paste("The total steps for the days have mean  = ", 
+    round(daymean2, 2), "  and median  = ", round(daymedian2, 2))
 ```
-The total steps for the days have mean   =  10766.19 and median   =  10766.19  
+
+[1] "The total steps for the days have mean  =  10766.19   and median  =  10766.19"
 
 The increase in the mean and median, due to filling in NA, is 0 and 1.19 respectively.  
 
